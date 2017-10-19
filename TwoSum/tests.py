@@ -1,6 +1,7 @@
 def main():
   import sys
   from solution import Solution
+  
   print Solution().twoSum([2, 7, 11, 15], 9)
   print 'Expected [0, 1]'
 
