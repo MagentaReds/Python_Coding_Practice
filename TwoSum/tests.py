@@ -1,18 +1,25 @@
-def main():
-  import sys
-  from solution import Solution
-  
-  print Solution().twoSum([2, 7, 11, 15], 9)
-  print 'Expected [0, 1]'
+import sys, unittest
+from solution import Solution
 
-  print Solution().twoSum([11, 15], 26)
-  print 'Expected [0, 1]'
+#simple custom class to test equalness of all added expected/given pairs
+class TestTwoSum(unittest.TestCase):
 
-  print Solution().twoSum([2, 7, 11, 15], 26)
-  print 'Expected [2, 3]'
+  def setUp(self):
+    self.pairs = []  
+    self.pairs.append( ( [0,1], Solution().twoSum([2, 7, 11, 15], 9) ) )
+    self.pairs.append( ( [0,1], Solution().twoSum([11, 15], 26) ) )
+    self.pairs.append( ( [2,3], Solution().twoSum([2, 7, 11, 15], 26) ) )
+    self.pairs.append( ( [0,3], Solution().twoSum([2, 7, 11, 15], 17) ) )
 
-  print Solution().twoSum([2, 7, 11, 15], 17)
-  print 'Expected [0, 3]'
+  def test_compare(self):
+    test = 1
+    for x in self.pairs: 
+      self.assertEquals( x[0], x[1], 'Test {} failed: {} is not equal to {}'.format(test, x[0], x[1]))
+      test+=1
+
+def main(): 
+  unittest.main()
+
 
 if __name__ == '__main__':
   main()
