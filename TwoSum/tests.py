@@ -11,7 +11,7 @@ class TestTwoSum(unittest.TestCase):
     self.pairs.append( ( [2,3], Solution().twoSum([2, 7, 11, 15], 26) ) )
     self.pairs.append( ( [0,3], Solution().twoSum([2, 7, 11, 15], 17) ) )
 
-  def test_compare(self):
+  def test_correct_answers(self):
     test = 1
     for x in self.pairs: 
       self.assertEquals( x[0], x[1], 'Test {} failed: {} is not equal to {}'.format(test, x[0], x[1]))
